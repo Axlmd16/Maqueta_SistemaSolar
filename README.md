@@ -2,6 +2,8 @@
 
 Este proyecto es una simulación visual e interactiva del Sistema Solar, desarrollada con HTML, CSS y JavaScript puro. Permite observar el movimiento orbital de los planetas y la luna alrededor del Sol, visualizar las órbitas, el cinturón de asteroides y un fondo estrellado animado.
 
+![image](https://github.com/user-attachments/assets/5c678e53-60c8-4035-9fff-90ae6794da27)
+
 ## Características principales
 
 -   Animación realista de los planetas y la luna orbitando el Sol.
