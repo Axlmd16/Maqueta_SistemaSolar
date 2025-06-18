@@ -1,0 +1,325 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    overflow: hidden;
+    font-family: sans-serif;
+    color: white;
+}
+
+.container {
+    width: 90vmin;
+    height: 90vmin;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- NUEVOS ESTILOS DE FONDO --- */
+#stars-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Detrás de todo */
+}
+
+.star {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    animation: twinkle 5s infinite;
+}
+
+@keyframes twinkle {
+    0%,
+    100% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+.asteroid-belt {
+    position: absolute;
+    width: 75%; /* Tamaño del cinturón */
+    height: 75%;
+    border-radius: 50%;
+    /* El cinturón en sí es un contenedor invisible que rota */
+    animation: rotate 200s linear infinite;
+    z-index: 5; /* Entre el sol y los planetas */
+}
+
+.asteroid {
+    position: absolute;
+    background-color: #8b4513; /* Color marrón de roca */
+    width: 2px;
+    height: 3px;
+    border-radius: 10px;
+}
+/* --- FIN NUEVOS ESTILOS --- */
+
+.sun {
+    width: 12%;
+    height: 12%;
+    position: absolute;
+    border-radius: 50%;
+    box-shadow: 0 0 3em rgb(255, 165, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    background: none !important;
+}
+
+.sun img {
+    width: 100%;
+    height: 100%;
+    animation: rotate 25s linear infinite;
+    background: none !important;
+    border-radius: 50%;
+    box-shadow: 0 0 60px 20px #ffb30080, 0 0 120px 40px #ffcc0040;
+}
+
+/* Sol con resplandor animado */
+.sun {
+    box-shadow: 0 0 3em 1.5em #ffb300, 0 0 6em 3em #ffcc00, 0 0 1em 0.5em #fff;
+    animation: sun-glow 2.5s ease-in-out infinite alternate;
+}
+@keyframes sun-glow {
+    0% {
+        box-shadow: 0 0 3em 1.5em #ffb300, 0 0 6em 3em #ffcc00,
+            0 0 1em 0.5em #fff;
+    }
+    100% {
+        box-shadow: 0 0 4em 2em #ffb300, 0 0 8em 4em #ffcc00, 0 0 2em 1em #fff;
+    }
+}
+
+.planet {
+    position: absolute;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    cursor: grab;
+    z-index: 20; /* Los planetas están por encima del cinturón */
+}
+
+/* Planetas gaseosos con leve resplandor */
+#jupiter,
+#saturn,
+#uranus,
+#neptune {
+    box-shadow: 0 0 16px 4px #fff2, 0 0 32px 8px #fff1;
+}
+
+.planet.dragging {
+    cursor: grabbing;
+    z-index: 1000;
+    box-shadow: 0 0 20px 5px rgba(0, 150, 255, 0.7);
+    filter: brightness(1.3) drop-shadow(0 0 12px #0cf8);
+}
+
+/* Tamaños de los planetas */
+#mercury {
+    width: 2%;
+    height: 2%;
+    background-image: url("./images/mercury.png");
+    left: 50%;
+    top: 50%;
+}
+#venus {
+    width: 4%;
+    height: 4%;
+    background-image: url("./images/venus.png");
+    left: 50%;
+    top: 50%;
+}
+#earth {
+    width: 4.5%;
+    height: 4.5%;
+    background-image: url("./images/earth.png");
+    left: 50%;
+    top: 50%;
+}
+#mars {
+    width: 3%;
+    height: 3%;
+    background-image: url("./images/mars.png");
+    left: 50%;
+    top: 50%;
+}
+#jupiter {
+    width: 8%;
+    height: 8%;
+    background-image: url("./images/jupiter.png");
+    left: 50%;
+    top: 50%;
+}
+#saturn {
+    width: 7%;
+    height: 7%;
+    background-image: url("./images/saturn.png");
+    left: 50%;
+    top: 50%;
+}
+#uranus {
+    width: 6%;
+    height: 6%;
+    background-image: url("./images/uranus.png");
+    left: 50%;
+    top: 50%;
+}
+#neptune {
+    width: 6%;
+    height: 6%;
+    background-image: url("./images/neptune.png");
+    left: 50%;
+    top: 50%;
+}
+#moon {
+    width: 1.5%;
+    height: 1.5%;
+    background-image: url("./images/moon.png");
+    left: 50%;
+    top: 50%;
+}
+
+.explosion,
+.sun-flare {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.explosion {
+    width: 50px;
+    height: 50px;
+    background-color: orange;
+    animation: explode 0.5s ease-out forwards;
+    z-index: 100;
+}
+
+@keyframes explode {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(3);
+        opacity: 0;
+    }
+}
+
+.sun-flare {
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 200, 0, 0.8) 50%,
+        rgba(255, 100, 0, 0) 70%
+    );
+    animation: sun-flare-effect 0.8s ease-out forwards;
+    z-index: 11;
+}
+
+@keyframes sun-flare-effect {
+    0% {
+        transform: scale(0.5);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1.2);
+        opacity: 0;
+    }
+}
+
+@keyframes rotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* --- NUEVOS ESTILOS DE INTERFAZ --- */
+#ui-panel {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.85);
+    color: #fff;
+    padding: 16px 24px;
+    border-radius: 12px;
+    box-shadow: 0 2px 16px #0008;
+    min-width: 180px;
+    max-width: 260px;
+    z-index: 2000;
+    font-size: 1rem;
+    transition: opacity 0.3s;
+    opacity: 1;
+}
+#ui-panel img {
+    display: block;
+    margin: 8px auto 12px;
+    border-radius: 50%;
+    box-shadow: 0 0 12px #fff8;
+}
+#ui-panel button {
+    margin-top: 10px;
+    padding: 4px 12px;
+    border: none;
+    border-radius: 6px;
+    background: #444;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+/* Fondo estrellado más realista */
+#stars-container .star {
+    background: white;
+    border-radius: 50%;
+    opacity: 0.5;
+    box-shadow: 0 0 6px 2px #fff8;
+    animation: twinkle 4s infinite alternate;
+}
+
+/* Estilos para el SVG de órbitas */
+#orbits-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Mejora visual de la órbita */
+.orbit-path {
+    stroke: rgba(255, 255, 255, 0.18);
+    stroke-width: 2;
+    fill: none;
+    filter: drop-shadow(0 0 4px #fff4);
+}
+
+/* Panel de información responsivo */
+@media (max-width: 600px) {
+    #ui-panel {
+        left: 10px;
+        right: 10px;
+        top: auto;
+        bottom: 10px;
+        max-width: 90vw;
+    }
+}

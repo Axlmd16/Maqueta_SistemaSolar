@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Sistema Solar Interactivo</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <div id="stars-container"></div>
+        <div class="container">
+            <!-- Órbitas visuales -->
+            <svg id="orbits-svg"></svg>
+
+            <div class="asteroid-belt"></div>
+
+            <div class="sun">
+                <img src="./images/sun.png" alt="sol" draggable="false" />
+            </div>
+
+            <div
+                id="mercury"
+                class="planet"
+                tabindex="0"
+                aria-label="Mercurio"
+            ></div>
+            <div
+                id="venus"
+                class="planet"
+                tabindex="0"
+                aria-label="Venus"
+            ></div>
+            <div
+                id="earth"
+                class="planet"
+                tabindex="0"
+                aria-label="Tierra"
+            ></div>
+            <div id="mars" class="planet" tabindex="0" aria-label="Marte"></div>
+            <div
+                id="jupiter"
+                class="planet"
+                tabindex="0"
+                aria-label="Júpiter"
+            ></div>
+            <div
+                id="saturn"
+                class="planet"
+                tabindex="0"
+                aria-label="Saturno"
+            ></div>
+            <div
+                id="uranus"
+                class="planet"
+                tabindex="0"
+                aria-label="Urano"
+            ></div>
+            <div
+                id="neptune"
+                class="planet"
+                tabindex="0"
+                aria-label="Neptuno"
+            ></div>
+
+            <div id="moon" class="planet" tabindex="0" aria-label="Luna"></div>
+        </div>
+        <!-- El panel de información se crea dinámicamente por JS -->
+        <script src="script.js"></script>
+    </body>
+</html>
