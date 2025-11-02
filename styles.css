@@ -70,7 +70,7 @@ body {
     height: 12%;
     position: absolute;
     border-radius: 50%;
-    box-shadow: 0 0 3em rgb(255, 165, 0);
+    box-shadow: 0 0 3em rgb(226, 225, 223);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -84,7 +84,7 @@ body {
     animation: rotate 25s linear infinite;
     background: none !important;
     border-radius: 50%;
-    box-shadow: 0 0 60px 20px #ffb30080, 0 0 120px 40px #ffcc0040;
+    box-shadow: 0 0 60px 20px #eeeeee80, 0 0 120px 40px #ffcc0040;
 }
 
 /* Sol con resplandor animado */
