@@ -1,0 +1,12 @@
+{
+  "name": "sistema-solar-interactivo",
+  "version": "1.0.0",
+  "description": "Simulación interactiva del Sistema Solar desarrollada con HTML5, CSS3 y JavaScript puro",
+  "author": "Tu Nombre",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": "18.x"
+  }
+}

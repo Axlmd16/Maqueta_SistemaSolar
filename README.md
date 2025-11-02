@@ -27,3 +27,27 @@ Este proyecto es una simulación visual e interactiva del Sistema Solar, desarro
 
 1. Abre `index.html` en tu navegador.
 2. Interactúa con los planetas y explora las funcionalidades.
+
+## Despliegue en Azure App Service
+
+### Instrucciones de despliegue
+1. Crear un recurso App Service en Azure con Node.js en Linux
+2. Conectar el repositorio GitHub mediante Deployment Center
+3. Configurar la rama "main" para despliegue automático
+4. Acceder a `https://tu-nombre-app.azurewebsites.net`
+
+### Entorno de ejecución
+- **Stack tecnológico**: HTML5, CSS3, JavaScript (Frontend)
+- **Runtime**: Node.js 18.x
+- **Servidor**: Node.js HTTP Server
+- **Dependencias**: Solo Node.js incorporado
+
+### Requisitos previos
+- Node.js 18.x o superior
+- Navegador web moderno (Chrome, Firefox, Safari, Edge)
+
+### Variables de entorno
+- `PORT`: Puerto de ejecución (por defecto 8080, Azure configura automáticamente)
+
+### Autor
+Jostin Jimenez - 2025
